@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const canvas = require('canvas');
 const jimp = require('jimp');
-const prefix = '*';
+const prefix = '=';
 const axios = require('axios');
 const fs = require('fs');
 const ms = require('ms');
@@ -55,7 +55,7 @@ client.on('ready', () => {
   console.log('')
   console.log('')
   console.log('')
-  client.user.setActivity('#help')
+  client.user.setActivity('=help')
 });
 
 client.on('message', message => {
@@ -327,7 +327,7 @@ if(warns[wUser.id].warns == 2){
 
 ⫸【5】 ${prefix}علم
 
-⫸【6】 ${prefix}
+⫸【6】 ${prefix}رياضيات
 
 **◄════════════► [Crazy-World] ◄════════════►**
 `);
@@ -1419,13 +1419,13 @@ client.on('guildMemberRemove', member => {
 
 الأوامر | Commands
 
-    البرفكس الخاص بالبوت [ * ] Bot Prefix
+    البرفكس الخاص بالبوت [ = ] Bot Prefix
 
-    لعرض النقاط الخاصة بك [ #points - #نقاطي ] To display your points
+    لعرض النقاط الخاصة بك [ =points - #نقاطي ] To display your points
 
-    قائمة المتصدرين للسيرفر [ #top - #توب ] Guild Leaderboard    
+    قائمة المتصدرين للسيرفر [ =top - #توب ] Guild Leaderboard    
 
-    قائمة المتصدرين في كافة السيرفرات [ #gtop - #الأفضل ] Global Leaderboardoard  
+    قائمة المتصدرين في كافة السيرفرات [ =gtop - #الأفضل ] Global Leaderboardoard  
 
     Number of games [ 10 ] عدد الألعاب
 
@@ -1433,29 +1433,29 @@ client.on('guildMemberRemove', member => {
 
 الألعاب
 
-#فكك | #spelling
+=فكك | =spelling
 
-#اسرع كتابة | #fasttyping
+=اسرع كتابة | =fasttyping
 
-#عواصم | #captials
+=عواصم | #captials
 
-#لغز | #puzzle
+=لغز | #puzzle
 
-#سؤال | #question ( قريبا | Comming Soon )
+=سؤال | #question ( قريبا | Comming Soon )
 
-#ايموجي | #emoji
+=ايموجي | #emoji
 
-#علم | #flags
+=علم | #flags
 
-#ترجم | #translate ( قريبا | Comming Soon )
+=ترجم | #translate ( قريبا | Comming Soon )
 
-#اعكس | #reverse  ( قريبا | Comming Soon )
+=اعكس | #reverse  ( قريبا | Comming Soon )
 
-#احسب | #maths
+=احسب | #maths
 
-#انمي | #anime
+=انمي | #anime
 
-#pubg | ببجي
+=pubg | ببجي
 
 
 
@@ -1471,7 +1471,7 @@ client.on('guildMemberRemove', member => {
   
 
 client.on('message', message =>{
-    if(message.content === '#بنق'){
+    if(message.content === '=بنق'){
 let start = Date.now(); message.channel.send('pong').then(message => { 
 message.edit(`\`\`\`js
 Time taken: ${Date.now() - start} ms
