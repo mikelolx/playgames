@@ -325,9 +325,7 @@ if(warns[wUser.id].warns == 2){
 
 ⫸【4】 ${prefix}ايموجي
 
-⫸【5】 ${prefix}علم
-
-⫸【6】 ${prefix}رياضيات
+⫸【5】 ${prefix}رياضيات
 
 **◄════════════► [Crazy-World] ◄════════════►**
 `);
@@ -984,49 +982,7 @@ message.reply('**عندك اعدادات الخصوصيه لا يمكنني ان
 			})
 		})
 	}
-	if(command == prefix + 'علم') {
-		let type = require('./qflag.json');
-		let item = type[Math.floor(Math.random() * type.length)];
-		let filter = response => {
-		return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-		};
-		var lazPoints = games[message.author.id].laz;
-		var fkkPoints = games[message.author.id].fkk;
-		var fastPoints = games[message.author.id].fast;
-		var emojiPoints = games[message.author.id].emoji;
-		var flagPoints = games[message.author.id].flag;
-		var mathPoints = games[message.author.id].math;
-		var allPoints = lazPoints + fkkPoints + fastPoints + emojiPoints + flagPoints + mathPoints;
-		
-		if(cooldownGames.has(message.author.id)) return message.reply('**جاوب على السؤال اولا**');
-		cooldownGames.add(message.author.id);
-		
-		let qFlag = new Discord.RichEmbed()
-		.setTitle('')
-		.setDescription(`اسرع واحد يقوم بكتابة اسم العلم التالي:`)
-		.setImage(item.type)
-		.setThumbnail(client.user.avatarURL)
-		.setColor('#36393e')
-		.setTimestamp()
-		.setFooter(``)
-		
-		message.channel.send(qFlag).then(() => {
-			message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-			.then((collected) => {
-				let won = collected.first().author;
-				message.channel.send(`${collected.first().author} ✅ \`\`${allPoints + 1}\`\` لقد قمت بكتابة اسم العلم بالوقت المناسب، **مجموع نقاطك**`);
-				games[won.id].flag++;
-				cooldownGames.delete(message.author.id);
-				fs.writeFile("./games/games.json", JSON.stringify(games), (err) => {
-					if(err) console.error(err)
-				})
-			})
-			.catch(collected => {
-				message.channel.send(`:x: **لم يقم احد بكتابة اسم العلم بالوقت المناسب**`);
-				cooldownGames.delete(message.author.id);
-			})
-		})
-	}
+	
 	if(command == prefix + 'رياضيات') {
 		let type = require('./qmath.json');
 		let item = type[Math.floor(Math.random() * type.length)];
